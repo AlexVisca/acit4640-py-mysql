@@ -5,4 +5,3 @@ The app is built on three components:
 * the `backend` (Python/Flask app)
 * the database (MySQL)
 
-[Application setup (live demo)](https://youtu.be/msfqAOBcKYo)
