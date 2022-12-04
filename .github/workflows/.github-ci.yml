@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./backend
-          file: ./app.dockerfile
+          file: ./backend/app.dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_ACCESS_ID }}/app4640_backend:latest
       - 
@@ -35,6 +35,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./frontend
-          file: ./Dockerfile
+          file: ./frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_ACCESS_ID }}/app4640_frontend:latest
