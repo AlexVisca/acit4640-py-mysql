@@ -16,8 +16,6 @@ RUN envsubst < /app/backend.conf.template > /app/backend.conf
 WORKDIR /app
 USER backend
 RUN python3 -m pip install --user -r requirements.txt
-# Expose application port
-EXPOSE 8000
 # Program executable
 ENTRYPOINT [ "./entrypoint.sh" ]
-CMD [ "./.local/bin/gunicorn", "wsgi:app", "-b", "0.0.0.0:8000" ]
+CMD [ "/app/.local/bin/gunicorn", "wsgi:app", "-b", "0.0.0.0:8000" ]
