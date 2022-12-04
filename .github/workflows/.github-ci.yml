@@ -23,5 +23,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
+          context: ./backend
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_ACCESS_ID }}/app4640-backend:latest
