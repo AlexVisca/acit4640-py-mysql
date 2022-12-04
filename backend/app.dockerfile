@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y \
 RUN useradd -m -d /app backend
 COPY . /app
 RUN chmod +x /app/entrypoint.sh
+# change backend config file
+RUN envsubst < /app/backend.conf.template > /app/backend.conf
 # Install application
 WORKDIR /app
 USER backend
