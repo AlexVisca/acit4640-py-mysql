@@ -1,1 +1,27 @@
 ---
+name: app4640-docker
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - 
+        name: Check out the code
+        uses: actions/checkout@v3
+      - 
+        name: Login to hub.docker.com
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_ACCESS_ID }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+      - 
+        name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ secrets.DOCKERHUB_ACCESS_ID }}/app4640-backend:latest
